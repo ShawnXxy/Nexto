@@ -1,9 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	android:padding="16dp"
 	tools:context="site.shawnxxy.nexto.AddTaskActivity">
 
-</android.support.constraint.ConstraintLayout>
+	<!--task description-->
+	<EditText
+		android:id="@+id/TaskDescriptionEditText"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="start"
+		android:hint="@string/edit_task_description"
+		android:paddingBottom="16dp"/>
+
+	<!--priority-->
+	<EditText
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="start"
+		android:textColor="@android:color/primary_text_light"
+		style="@style/TextAppearance.AppCompat.Medium"
+		android:text="@string/priority_string"
+		android:layout_margin="8dp"/>
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="16dp">
+
+		<!--priority buttons-->
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_gravity="center"
+			android:weightSum="3">
+
+			<Button
+				android:id="@+id/buttonP1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:background="@color/materialRed"
+				android:text="@string/high_priority"
+				android:layout_weight="1"
+				style="?android:attr/buttonBarButtonStyle"
+				android:textColor="@android:color/primary_text_light"
+				android:onClick="onPrioritySeleted"/>
+
+			<Button
+				android:id="@+id/buttonP2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:background="@color/materialOrange"
+				android:text="@string/high_priority"
+				android:layout_weight="1"
+				style="?android:attr/buttonBarButtonStyle"
+				android:textColor="@android:color/primary_text_light"
+				android:onClick="onPrioritySeleted"/>
+
+			<Button
+				android:id="@+id/buttonP3"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:background="@color/materialYellow"
+				android:text="@string/high_priority"
+				android:layout_weight="1"
+				style="?android:attr/buttonBarButtonStyle"
+				android:textColor="@android:color/primary_text_light"
+				android:onClick="onPrioritySeleted"/>
+		</LinearLayout>
+
+		<RadioGroup
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_gravity="center"
+			android:weightSum="3">
+
+			<RadioButton
+				android:id="@+id/Radio1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:onClick="onPrioritySeleted"
+				android:theme="@style/WhiteRadioButton"/>
+
+			<RadioButton
+				android:id="@+id/Radio2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:onClick="onPrioritySeleted"
+				android:theme="@style/WhiteRadioButton"/>
+
+			<RadioButton
+				android:id="@+id/Radio3"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:onClick="onPrioritySeleted"
+				android:theme="@style/WhiteRadioButton"/>
+		</RadioGroup>
+	</FrameLayout>
+
+	<Button
+		android:id="@+id/addButton"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:text="@string/add_button"
+		style="@style/TextAppearance.AppCompat.Large"
+		android:textColor="@android:color/primary_text_dark"
+		android:background="@color/colorPrimary"
+		android:onClick="onClickAddTask"/>
+</LinearLayout>

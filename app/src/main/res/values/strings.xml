@@ -1,3 +1,14 @@
 <resources>
 	<string name="app_name">Nexto</string>
+	<string name="main_activity_name">All Tasks</string>
+	<string name="add_task_activity_name">Add a new task</string>
+
+	<string name="edit_task_description">Describe your task</string>
+	<string name="priority_string">Priority</string>
+
+	<string name="high_priority">High</string>
+	<string name="med_priority">Medium</string>
+	<string name="low_priority">Low</string>
+
+	<string name="add_button">Add</string>
 </resources>
