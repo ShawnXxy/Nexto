@@ -1,5 +1,6 @@
 package site.shawnxxy.nexto;
 
+import android.net.Uri;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.content.Intent;
@@ -47,6 +48,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 			@Override
 			public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+				// retrieve id of the task to delete
+				int id = (int) viewHolder.itemView.getTag();
+				String stringId = Integer.toString(id);
+
+				Uri uri = TaskContract.TaskEntry.CONTENT_URI;
+				uri = uri.buildUpon().appendPath(stringId).build();
+
+				getContentResolver().delete(uri, null, null);
+				// re-load after delete
+				getSupportLoaderManager().restartLoader(TASK_LOADER_ID, null, MainActivity.this);
 
 			}
 		}).attachToRecyclerView(mRecyclerView);
