@@ -2,6 +2,7 @@ package site.shawnxxy.nexto.data;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -13,9 +14,13 @@ import android.support.annotation.Nullable;
 
 public class TaskContentProvider extends ContentProvider {
 
+	private TaskDbHelper mTaskDbHelper;
+
 	@Override
 	public boolean onCreate() {
-		return false;
+		Context context = getContext();
+		mTaskDbHelper = new TaskDbHelper(context);
+		return true;
 	}
 
 	@Nullable
