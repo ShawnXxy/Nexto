@@ -1,13 +1,17 @@
 package site.shawnxxy.nexto.data;
 
 import android.content.ContentProvider;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
+import static site.shawnxxy.nexto.data.TaskContract.TaskEntry.TABLE_NAME;
 
 /**
  * Created by shawn on 2/12/2018.
@@ -50,7 +54,27 @@ public class TaskContentProvider extends ContentProvider {
 	@Nullable
 	@Override
 	public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
-		return null;
+		// get access to database
+		final SQLiteDatabase db = mTaskDbHelper.getWritableDatabase();
+		// identify the match for the tasks directory
+		int match = sUriMatcher.match(uri);
+		Uri returnUri; // URI to be returned
+
+		switch (match) {
+			case TASKS:
+				// insert value
+				long id = db.insert(TABLE_NAME, null, values);
+				if (id > 0) {
+					returnUri = ContentUris.withAppendedId(TaskContract.TaskEntry.CONTENT_URI, id);
+				} else {
+					throw new android.database.SQLException("Failed to insert row into " + uri);
+				}
+				break;
+			default:
+				throw new UnsupportedOperationException("Unknown uri: " + uri);
+		}
+
+		return returnUri;
 	}
 
 	@Override
