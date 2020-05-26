@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Nexto.iml" filepath="$PROJECT_DIR$/Nexto.iml" group="Nexto" />
+      <module fileurl="file://$PROJECT_DIR$/app/Nexto-app.iml" filepath="$PROJECT_DIR$/app/Nexto-app.iml" group="Nexto/app" />
+      <module fileurl="file://$PROJECT_DIR$/androidstudio-workspace-Nexto.iml" filepath="$PROJECT_DIR$/androidstudio-workspace-Nexto.iml" group="Nexto" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Nexto/app" />
     </modules>
   </component>
